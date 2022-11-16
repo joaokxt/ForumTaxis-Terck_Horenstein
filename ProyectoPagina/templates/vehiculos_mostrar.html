@@ -3,6 +3,8 @@
 
 {% block codigoDinamico %}
     <h3>Listado de vehículos: </h3>
+    <h5><a class="button" href="{% url 'reservas_buscar' %}">Buscar por modelo</a></h5>
+
     {% if vehiculos %}
         <ol>
             {% for vehiculo in vehiculos %}

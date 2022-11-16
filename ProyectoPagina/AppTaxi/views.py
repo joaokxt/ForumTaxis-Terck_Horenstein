@@ -69,3 +69,12 @@ def agregar_vehiculos(request):
     else:
         formulario=VehiculoFormulario()
     return render(request, 'vehiculos_agregar.html', {"formulario":formulario})
+
+def buscar_vehiculos(request):
+    if request.GET.get('modelo', False): 
+        modelo = request.GET['modelo']
+        vehiculos = Reserva.objects.filter(modelo__icontains=modelo)
+        return render(request,'vehiclos_buscar.html', {'vehiculos':vehiculos})
+    else:
+        respuesta = 'No hay datos'
+    return render(request, 'reservas_buscar.html', {'respuesta':respuesta})
