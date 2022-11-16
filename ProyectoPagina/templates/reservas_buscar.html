@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block codigoDinamico %}
+
+    <form action=" " method="GET">{% csrf_token %}
+        <input type="text" name="codigo" id="codigo">
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if reservas %}
+        <ul>
+        {% for reserva in reservas %}
+            <li>{{reserva}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+            <h3>{{respuesta}}</h3> 
+    {% endif %}
+
+    <button>
+        <a class="button" href="{% url 'reservas_mostrar' %}">Volver</a>
+    </button>
+{% endblock %}

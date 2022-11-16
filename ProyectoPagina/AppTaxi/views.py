@@ -25,6 +25,16 @@ def agregar_reservas(request):
         formulario=ReservaFormulario()
     return render(request, 'reservas_agregar.html', {"formulario":formulario})
 
+def buscar_reservas(request):
+    if request.GET.get('codigo', False): 
+        codigo = request.GET['codigo']
+        reservas = Reserva.objects.filter(codigo__icontains=codigo)
+        return render(request,'reservas_buscar.html', {'reservas':reservas})
+    else:
+        respuesta = 'No hay datos'
+    return render(request, 'reservas_buscar.html', {'respuesta':respuesta})
+
+
 def agregar_taxistas(request):
     if request.method == "POST":
         formulario = TaxistaFormulario(request.POST)

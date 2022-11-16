@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block codigoDinamico %}
-    <h3>Listado de reservas: </h3>
+    <h3>Listado de reservas:</h3>
+    <h5><a class="button" href="{% url 'reservas_buscar' %}">Buscar por código</a></h5>
+    
     {% if reservas %}
         <ol>
             {% for reserva in reservas %}
