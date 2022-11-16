@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block codigoDinamico %}
+    <h3>Listado de taxistas: </h3>
+    {% if taxistas %}
+        <ol>
+            {% for taxista in taxistas %}
+                <li>{{taxista}}</li>
+                <button>
+                    <a href="{% url 'taxistas_mostrar' %}">Borrar</a></li>
+                </button>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <h5>No hay reservas</h5>
+    {% endif %}
+    <button>
+        <a class="button" href="{% url 'taxistas_agregar' %}">Agregar</a>
+    </button>
+{% endblock %}

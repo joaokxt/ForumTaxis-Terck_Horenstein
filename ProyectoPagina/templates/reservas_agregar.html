@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block codigoDinamico %}
+    <h3>Agregar reserva</h3>
+    <form action=" " method="POST">{% csrf_token %} 
+        <table>
+            {{ formulario.as_table }} 
+        </table>
+        <input type="submit", value="Enviar", href="{% url 'reservas_mostrar' %}">
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block codigoDinamico %}
+    <h3>Listado de vehículos: </h3>
+    {% if vehiculos %}
+        <ol>
+            {% for vehiculo in vehiculos %}
+                <li>{{vehiculo}}</li>
+                <button>
+                    <a href="{% url 'vehiculos_mostrar' %}">Borrar</a></li>
+                </button>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <h5>No hay vehículos registrados</h5>
+    {% endif %}
+    <button>
+        <a class="button" href="{% url 'vehiculos_agregar' %}">Agregar</a>
+    </button>
+{% endblock %}

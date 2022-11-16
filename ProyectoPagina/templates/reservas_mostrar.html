@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block codigoDinamico %}
+    <h3>Listado de reservas: </h3>
+    {% if reservas %}
+        <ol>
+            {% for reserva in reservas %}
+                <li>{{reserva}}</li>
+                <button>
+                    <a href="{% url 'reservas_mostrar' %}">Borrar</a></li>
+                </button>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <h5>No hay reservas</h5>
+    {% endif %}
+    <button>
+        <a class="button" href="{% url 'reservas_agregar' %}">Agregar</a>
+    </button>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block codigoDinamico %}
+    <h3>Agregar taxista</h3>
+    <form action=" " method="POST">{% csrf_token %} 
+        <table>
+            {{ formulario.as_table }} 
+        </table>
+        <input type="submit", value="Enviar", href="{% url 'taxistas_mostrar' %}">
+    </form>
+{% endblock %}
