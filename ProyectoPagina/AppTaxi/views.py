@@ -34,7 +34,6 @@ def buscar_reservas(request):
         respuesta = 'No hay datos'
     return render(request, 'reservas_buscar.html', {'respuesta':respuesta})
 
-
 def agregar_taxistas(request):
     if request.method == "POST":
         formulario = TaxistaFormulario(request.POST)
@@ -51,6 +50,16 @@ def agregar_taxistas(request):
 def mostrar_taxistas(request):
     taxistas = Taxista.objects.all()
     return render(request, "taxistas_mostrar.html", {"taxistas":taxistas})
+
+def buscar_taxista(request):
+    if request.GET.get("matricula", False):
+        matricula=request.GET["matricula"]
+        taxistas = Taxista.objects.filter(matricula__icontains=matricula)
+        return render(request, "taxistas_buscar.html", {"taxistas":taxistas})
+    else:
+        respuesta = "No se encontró el taxista"
+    
+    return render(request, "taxistas_buscar.html", {'respuesta':respuesta})
 
 def mostrar_vehiculos(request):
     vehiculos = Vehiculo.objects.all()

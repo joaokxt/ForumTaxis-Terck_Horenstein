@@ -10,4 +10,5 @@ urlpatterns = [
     path('vehiculos_buscar', views.buscar_vehiculos, name='vehiculos_buscar'),
     path('taxistas/', views.mostrar_taxistas, name='taxistas_mostrar'),
     path('taxistas_agregar/', views.agregar_taxistas, name='taxistas_agregar'),
+    path('taxistas_buscar/', views.buscar_taxista, name='taxistas_buscar'),
 ]
