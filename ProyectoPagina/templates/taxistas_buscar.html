@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block  codigoDinamico %}
+<form action="" method="get">
+
+    <input type="number" name="matricula" id="matricula">
+    <input type="submit" value="Buscar">
+
+</form>
+
+{% if taxistas %}
+    <ul>
+    {% for taxista in taxistas%}
+        <li> {{taxista}} </li> 
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> No se encontro un taxista con la matricula {{taxista.matricula}} </p>
+{% endif %}
+{% endblock  %}
+
